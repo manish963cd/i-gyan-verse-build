@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   FaRocket, 
   FaBookOpen, 
@@ -36,13 +37,16 @@ import {
   FaEye,
   FaThumbsUp,
   FaMoon,
-  FaSun
+  FaSun,
+  FaBars,
+  FaTimes
 } from 'react-icons/fa';
 
 const Index = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [chatInput, setChatInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -157,13 +161,35 @@ const Index = () => {
               {darkMode ? <FaSun className="text-yellow-500" /> : <FaMoon className="text-gray-600" />}
             </button>
             <div className="hidden md:flex items-center space-x-6 text-sm">
-              <a href="#learn" className="hover:text-primary transition-colors">Learn</a>
-              <a href="#projects" className="hover:text-primary transition-colors">Projects</a>
-              <a href="#mentors" className="hover:text-primary transition-colors">Mentors</a>
-              <a href="#companies" className="hover:text-primary transition-colors">Companies</a>
+              <Link to="/learn" className="hover:text-primary transition-colors">Learn</Link>
+              <Link to="/student-projects" className="hover:text-primary transition-colors">Projects</Link>
+              <Link to="/mentor" className="hover:text-primary transition-colors">Mentors</Link>
+              <Link to="/companies" className="hover:text-primary transition-colors">Companies</Link>
+              <Link to="/ai-guide" className="hover:text-primary transition-colors">AI Guide</Link>
+              <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
             </div>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-full hover:bg-muted transition-colors"
+            >
+              {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+            </button>
           </div>
         </div>
+        
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-background border-t border-border">
+            <div className="container mx-auto px-4 py-4 space-y-4">
+              <Link to="/learn" className="block hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Learn</Link>
+              <Link to="/student-projects" className="block hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Projects</Link>
+              <Link to="/mentor" className="block hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Mentors</Link>
+              <Link to="/companies" className="block hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Companies</Link>
+              <Link to="/ai-guide" className="block hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>AI Guide</Link>
+              <Link to="/contact" className="block hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
@@ -208,18 +234,18 @@ const Index = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-hero animate-bounce">
+              <Link to="/learn" className="btn-hero animate-bounce">
                 <FaBookOpen className="mr-2" />
                 📘 Start Learning
-              </button>
-              <button className="btn-glass">
+              </Link>
+              <Link to="/student-projects" className="btn-glass">
                 <FaRocket className="mr-2" />
                 🚀 Explore Projects
-              </button>
-              <button className="btn-glass">
+              </Link>
+              <Link to="/ai-guide" className="btn-glass">
                 <FaPlay className="mr-2" />
                 🎥 Watch Demo
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -323,7 +349,7 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skillTracks.map((track, index) => (
-              <div key={index} className="card-glow group cursor-pointer">
+              <Link key={index} to="/learn" className="card-glow group cursor-pointer">
                 <div className="text-center">
                   <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
                     {track.emoji}
@@ -335,7 +361,7 @@ const Index = () => {
                     <FaChevronRight className="text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -353,24 +379,71 @@ const Index = () => {
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {ctaButtons.map((button, index) => (
-                <div key={index} className="card-glass p-6 group cursor-pointer">
-                  <div className="text-center">
-                    <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                      {button.emoji}
-                    </div>
-                    <h3 className="font-semibold mb-2 group-hover:text-primary-glow transition-colors">
-                      {button.label}
-                    </h3>
-                    <p className="text-sm opacity-80 mb-4">
-                      {button.description}
-                    </p>
-                    <div className="flex justify-center">
-                      <button.icon className="text-primary-glow" />
-                    </div>
+              <Link to="/learn" className="card-glass p-6 group cursor-pointer">
+                <div className="text-center">
+                  <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">📘</div>
+                  <h3 className="font-semibold mb-2 group-hover:text-primary-glow transition-colors">Start Learning</h3>
+                  <p className="text-sm opacity-80 mb-4">For students beginning their journey</p>
+                  <div className="flex justify-center">
+                    <FaBookOpen className="text-primary-glow" />
                   </div>
                 </div>
-              ))}
+              </Link>
+              
+              <Link to="/student-projects" className="card-glass p-6 group cursor-pointer">
+                <div className="text-center">
+                  <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">🚀</div>
+                  <h3 className="font-semibold mb-2 group-hover:text-primary-glow transition-colors">Share Your Project</h3>
+                  <p className="text-sm opacity-80 mb-4">Upload, showcase, and build a public profile</p>
+                  <div className="flex justify-center">
+                    <FaShare className="text-primary-glow" />
+                  </div>
+                </div>
+              </Link>
+              
+              <Link to="/mentor" className="card-glass p-6 group cursor-pointer">
+                <div className="text-center">
+                  <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">👨‍🏫</div>
+                  <h3 className="font-semibold mb-2 group-hover:text-primary-glow transition-colors">Become a Mentor</h3>
+                  <p className="text-sm opacity-80 mb-4">Teachers or industry experts can guide learners</p>
+                  <div className="flex justify-center">
+                    <FaChalkboardTeacher className="text-primary-glow" />
+                  </div>
+                </div>
+              </Link>
+              
+              <Link to="/companies" className="card-glass p-6 group cursor-pointer">
+                <div className="text-center">
+                  <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">🏢</div>
+                  <h3 className="font-semibold mb-2 group-hover:text-primary-glow transition-colors">Partner with Us</h3>
+                  <p className="text-sm opacity-80 mb-4">Companies post real projects & discover talent</p>
+                  <div className="flex justify-center">
+                    <FaBuilding className="text-primary-glow" />
+                  </div>
+                </div>
+              </Link>
+              
+              <Link to="/ai-guide" className="card-glass p-6 group cursor-pointer">
+                <div className="text-center">
+                  <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">💡</div>
+                  <h3 className="font-semibold mb-2 group-hover:text-primary-glow transition-colors">Talk to Our AI</h3>
+                  <p className="text-sm opacity-80 mb-4">Launch AI chat to ask questions or get guidance</p>
+                  <div className="flex justify-center">
+                    <FaRobot className="text-primary-glow" />
+                  </div>
+                </div>
+              </Link>
+              
+              <Link to="/contact" className="card-glass p-6 group cursor-pointer">
+                <div className="text-center">
+                  <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">📞</div>
+                  <h3 className="font-semibold mb-2 group-hover:text-primary-glow transition-colors">Contact Us</h3>
+                  <p className="text-sm opacity-80 mb-4">For queries, feedback, or partnerships</p>
+                  <div className="flex justify-center">
+                    <FaPhone className="text-primary-glow" />
+                  </div>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
