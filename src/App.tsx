@@ -10,6 +10,11 @@ import Mentor from "./pages/Mentor";
 import Companies from "./pages/Companies";
 import AIGuide from "./pages/AIGuide";
 import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import StudentDashboard from "./pages/StudentDashboard";
+import CompanyDashboard from "./pages/CompanyDashboard";
+import MentorDashboard from "./pages/MentorDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +33,11 @@ const App = () => (
           <Route path="/companies" element={<Companies />} />
           <Route path="/ai-guide" element={<AIGuide />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/student-dashboard" element={<StudentDashboard />} />
+          <Route path="/company-dashboard" element={<CompanyDashboard />} />
+          <Route path="/mentor-dashboard" element={<MentorDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -167,6 +167,8 @@ const Index = () => {
               <Link to="/companies" className="hover:text-primary transition-colors">Companies</Link>
               <Link to="/ai-guide" className="hover:text-primary transition-colors">AI Guide</Link>
               <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
+              <Link to="/login" className="hover:text-primary transition-colors">Login</Link>
+              <Link to="/signup" className="hover:text-primary transition-colors">Sign Up</Link>
             </div>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -234,7 +236,7 @@ const Index = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/learn" className="btn-hero animate-bounce">
+              <Link to="/signup" className="btn-hero animate-bounce">
                 <FaBookOpen className="mr-2" />
                 📘 Start Learning
               </Link>
@@ -379,7 +381,7 @@ const Index = () => {
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Link to="/learn" className="card-glass p-6 group cursor-pointer">
+              <Link to="/student-dashboard" className="card-glass p-6 group cursor-pointer">
                 <div className="text-center">
                   <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">📘</div>
                   <h3 className="font-semibold mb-2 group-hover:text-primary-glow transition-colors">Start Learning</h3>
@@ -401,7 +403,7 @@ const Index = () => {
                 </div>
               </Link>
               
-              <Link to="/mentor" className="card-glass p-6 group cursor-pointer">
+              <Link to="/mentor-dashboard" className="card-glass p-6 group cursor-pointer">
                 <div className="text-center">
                   <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">👨‍🏫</div>
                   <h3 className="font-semibold mb-2 group-hover:text-primary-glow transition-colors">Become a Mentor</h3>
