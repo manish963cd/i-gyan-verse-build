@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import { FaUsers, FaBook, FaChartLine, FaClock, FaCalendar, FaStar, FaEnvelope, FaPlus, FaEye } from 'react-icons/fa';
+import { 
+  FaUsers, 
+  FaBook, 
+  FaChartLine, 
+  FaClock, 
+  FaCalendar, 
+  FaStar, 
+  FaEnvelope, 
+  FaPlus, 
+  FaEye 
+} from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
