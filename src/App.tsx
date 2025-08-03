@@ -10,6 +10,7 @@ import Mentor from "./pages/Mentor";
 import Companies from "./pages/Companies";
 import AIGuide from "./pages/AIGuide";
 import Contact from "./pages/Contact";
+import About from "./pages/About";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import StudentDashboard from "./pages/StudentDashboard";
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/companies" element={<Companies />} />
           <Route path="/ai-guide" element={<AIGuide />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/student-dashboard" element={<StudentDashboard />} />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaUsers, FaBook, FaChartLine, FaClock, FaCalendar, FaStar, FaMessage, FaPlus, FaEye } from 'react-icons/fa';
+import { FaUsers, FaBook, FaChartLine, FaClock, FaCalendar, FaStar, FaEnvelope, FaPlus, FaEye } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
@@ -159,7 +159,7 @@ const MentorDashboard = () => {
                         </div>
                       </div>
                       <Button size="sm" variant="outline">
-                        <FaMessage className="h-4 w-4 mr-1" />
+                        <FaEnvelope className="h-4 w-4 mr-1" />
                         Message
                       </Button>
                     </div>
@@ -247,7 +247,7 @@ const MentorDashboard = () => {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <FaMessage className="h-5 w-5 mr-2 text-green-500" />
+                  <FaEnvelope className="h-5 w-5 mr-2 text-green-500" />
                   Recent Messages
                 </CardTitle>
               </CardHeader>
